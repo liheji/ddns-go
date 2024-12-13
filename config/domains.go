@@ -91,7 +91,25 @@ func (domains *Domains) GetNewIp(dnsConf *DnsConfig) {
 
 	// IPv4
 	if dnsConf.Ipv4.Enable && len(domains.Ipv4Domains) > 0 {
-		ipv4Addr := dnsConf.GetIpv4Addr()
+		var ipv4Addr string
+		if dnsConf.Ipv4.GetType == "zerotier" {
+			resp, err := util.GetNetworkMember(dnsConf.Ipv4.Zerotier)
+			if err == nil && len(resp.Config.IPAssignments) > 0 {
+				ipv4Addr = resp.Config.IPAssignments[0]
+				for i, domain := range domains.Ipv4Domains {
+					name := util.TrimDot(resp.Name)
+					subdomain := util.TrimDot(domain.SubDomain)
+					if len(subdomain) <= 0 {
+						domains.Ipv4Domains[i].SubDomain = name
+					} else if !strings.HasPrefix(name, subdomain) {
+						domains.Ipv4Domains[i].SubDomain = name + "." + subdomain
+					}
+				}
+			}
+		} else {
+			ipv4Addr = dnsConf.GetIpv4Addr()
+		}
+
 		if ipv4Addr != "" {
 			domains.Ipv4Addr = ipv4Addr
 			domains.Ipv4Cache.TimesFailedIP = 0
@@ -107,7 +125,24 @@ func (domains *Domains) GetNewIp(dnsConf *DnsConfig) {
 
 	// IPv6
 	if dnsConf.Ipv6.Enable && len(domains.Ipv6Domains) > 0 {
-		ipv6Addr := dnsConf.GetIpv6Addr()
+		var ipv6Addr string
+		if dnsConf.Ipv6.GetType == "zerotier" {
+			resp, err := util.GetNetworkMember(dnsConf.Ipv6.Zerotier)
+			if err == nil && len(resp.Config.IPAssignments) > 1 {
+				for i, domain := range domains.Ipv6Domains {
+					ipv6Addr = resp.Config.IPAssignments[1]
+					name := util.TrimDot(resp.Name)
+					subdomain := util.TrimDot(domain.SubDomain)
+					if len(subdomain) <= 0 {
+						domains.Ipv6Domains[i].SubDomain = name
+					} else if !strings.HasPrefix(name, subdomain) {
+						domains.Ipv6Domains[i].SubDomain = name + "." + subdomain
+					}
+				}
+			}
+		} else {
+			ipv6Addr = dnsConf.GetIpv6Addr()
+		}
 		if ipv6Addr != "" {
 			domains.Ipv6Addr = ipv6Addr
 			domains.Ipv6Cache.TimesFailedIP = 0

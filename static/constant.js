@@ -259,6 +259,7 @@ const I18N_MAP = {
     'By api': '通过接口获取',
     'By network card': '通过网卡获取',
     'By command': '通过命令获取',
+    'By zerotier': '通过 ZeroTier 获取',
     'domainsHelp': `
       每行一个域名。
       如果域名不可注册，请使用冒号手动将其分为子域名和根域名。如 <code>www:domain.example.com</code><br />
@@ -292,9 +293,23 @@ const I18N_MAP = {
       通过命令获取IPv4, 仅使用标准输出(stdout)的第一个匹配的 IPv4 地址。如: ip -4 addr show eth1
       <a target="blank" href="https://github.com/jeessy2/ddns-go/wiki/通过命令获取IP参考">点击参考更多</a>
     `,
+    "Ipv4ZerotierHelp": `
+      通过Zerotier将网络中所有成员的IPv4解析到域名, 格式: [token],[network]。如: 123,abc
+      <a target="blank" href="https://docs.zerotier.com/start">[network]创建说明</a>
+      <a target="blank" href="https://docs.zerotier.com/api/tokens">[token]创建说明</a>
+      <br>
+      注：域名处仅填写<span style="font-weight: bold;">域名后缀</span>，最终域名形式为 [zerotier name].[域名后缀]
+    `,
     "Ipv6CmdHelp": `
       通过命令获取IPv6, 仅使用标准输出(stdout)的第一个匹配的 IPv6 地址。如: ip -6 addr show eth1
       <a target="blank" href="https://github.com/jeessy2/ddns-go/wiki/通过命令获取IP参考">点击参考更多</a>
+    `,
+    "Ipv6ZerotierHelp": `
+      通过Zerotier将网络中所有成员的IPv6解析到域名, 格式: [token],[network]。如: 123,abc
+      <a target="blank" href="https://docs.zerotier.com/start">[network]创建说明</a>
+      <a target="blank" href="https://docs.zerotier.com/api/tokens">[token]创建说明</a>
+      <br>
+      注：域名处仅填写<span style="font-weight: bold;">域名后缀</span>，最终域名形式为 [zerotier name].[域名后缀]
     `,
     "NetInterfaceEmptyHelp": '<span style="color: red">没有找到可用的网卡</span>',
     "Login": '登录',

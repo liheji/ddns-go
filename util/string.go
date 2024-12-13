@@ -32,3 +32,13 @@ func SplitLines(s string) []string {
 
 	return strings.Split(s, "\n")
 }
+
+// TrimDot 去掉字符串首尾的点
+func TrimDot(s string) string {
+	return strings.Trim(strings.TrimSpace(s), ".")
+}
+
+// TrimComma 去掉字符串首尾的逗号
+func TrimComma(s string) string {
+	return strings.Trim(strings.TrimSpace(s), ",")
+}

@@ -29,12 +29,14 @@ type dnsConf4JS struct {
 	Ipv4Url          string
 	Ipv4NetInterface string
 	Ipv4Cmd          string
+	Ipv4Zerotier     string
 	Ipv4Domains      string
 	Ipv6Enable       bool
 	Ipv6GetType      string
 	Ipv6Url          string
 	Ipv6NetInterface string
 	Ipv6Cmd          string
+	Ipv6Zerotier     string
 	Ipv6Reg          string
 	Ipv6Domains      string
 }
@@ -95,12 +97,14 @@ func getDnsConfStr(dnsConf []config.DnsConfig) string {
 			Ipv4Url:          conf.Ipv4.URL,
 			Ipv4NetInterface: conf.Ipv4.NetInterface,
 			Ipv4Cmd:          conf.Ipv4.Cmd,
+			Ipv4Zerotier:     conf.Ipv4.Zerotier,
 			Ipv4Domains:      strings.Join(conf.Ipv4.Domains, "\r\n"),
 			Ipv6Enable:       conf.Ipv6.Enable,
 			Ipv6GetType:      conf.Ipv6.GetType,
 			Ipv6Url:          conf.Ipv6.URL,
 			Ipv6NetInterface: conf.Ipv6.NetInterface,
 			Ipv6Cmd:          conf.Ipv6.Cmd,
+			Ipv6Zerotier:     conf.Ipv6.Zerotier,
 			Ipv6Reg:          conf.Ipv6.Ipv6Reg,
 			Ipv6Domains:      strings.Join(conf.Ipv6.Domains, "\r\n"),
 		})

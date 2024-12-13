@@ -33,6 +33,7 @@ type DnsConfig struct {
 		URL          string
 		NetInterface string
 		Cmd          string
+		Zerotier     string
 		Domains      []string
 	}
 	Ipv6 struct {
@@ -42,6 +43,7 @@ type DnsConfig struct {
 		URL          string
 		NetInterface string
 		Cmd          string
+		Zerotier     string
 		Ipv6Reg      string // ipv6匹配正则表达式
 		Domains      []string
 	}

@@ -1,10 +1,12 @@
 # build stage
-FROM --platform=$BUILDPLATFORM golang:1.20-alpine AS builder
+FROM golang:1.20-alpine AS builder
 
 WORKDIR /app
 COPY . .
 ARG TARGETOS TARGETARCH
 
+RUN sed -i 's#https\?://dl-cdn.alpinelinux.org/alpine#https://mirrors.tuna.tsinghua.edu.cn/alpine#g' /etc/apk/repositories
+RUN go env -w  GOPROXY=https://goproxy.cn,direct
 RUN apk add --no-cache git make tzdata \
     && GOOS=$TARGETOS GOARCH=$TARGETARCH make clean build
 
