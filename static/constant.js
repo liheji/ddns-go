@@ -329,6 +329,17 @@ const DNS_PROVIDERS = {
       "zh-cn": "<a target='_blank' href='https://www.cloudns.net/wiki/article/42/'>创建 API 用户</a>",
     }
   },
+  dnsneko: {
+    name: {
+      "en": "DnsNeko",
+    },
+    idLabel: "Username",
+    secretLabel: "API Key",
+    helpHtml: {
+      "en": "<a target='_blank' href='https://www.dnsneko.com'>DnsNeko</a> Enter your DnsNeko username and API key",
+      "zh-cn": "<a target='_blank' href='https://www.dnsneko.com'>DnsNeko</a> 填写 DnsNeko 用户名和 API Key",
+    }
+  },
 };
 
 const SVG_CODE = {
