@@ -340,6 +340,17 @@ const DNS_PROVIDERS = {
       "zh-cn": "<a target='_blank' href='https://www.dnsneko.com'>DnsNeko</a> 填写 DnsNeko 用户名和 API Key",
     }
   },
+  dnsexit: {
+    name: {
+      "en": "DnsExit",
+    },
+    idLabel: "",
+    secretLabel: "API Key",
+    helpHtml: {
+      "en": "<a target='_blank' href='https://dnsexit.com'>DnsExit</a> Enter your DnsExit API key",
+      "zh-cn": "<a target='_blank' href='https://dnsexit.com'>DnsExit</a> 填写 DnsExit API Key",
+    }
+  },
 };
 
 const SVG_CODE = {

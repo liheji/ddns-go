@@ -33,6 +33,7 @@ var (
 		rainyunEndpoint,
 		CloudnsEndpoint,
 		dnsNekoEndpoint,
+		dnsexitEndpoint,
 	}
 
 	Ipcache = [][2]util.IpCache{}
@@ -120,6 +121,8 @@ func RunOnce() {
 			dnsSelected = &ClouDNS{}
 		case "dnsneko":
 			dnsSelected = &DnsNeko{}
+		case "dnsexit":
+			dnsSelected = &DnsExit{}
 		default:
 			dnsSelected = &Alidns{}
 		}
