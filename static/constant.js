@@ -351,6 +351,18 @@ const DNS_PROVIDERS = {
       "zh-cn": "<a target='_blank' href='https://dnsexit.com'>DnsExit</a> 填写 DnsExit API Key",
     }
   },
+  digitalocean: {
+    name: {
+      "en": "DigitalOcean",
+      "zh-cn": "DigitalOcean",
+    },
+    idLabel: "",
+    secretLabel: "Token",
+    helpHtml: {
+      "en": "<a target='_blank' href='https://cloud.digitalocean.com/account/api/tokens'>Create Token</a>",
+      "zh-cn": "<a target='_blank' href='https://cloud.digitalocean.com/account/api/tokens'>创建令牌</a>",
+    }
+  },
 };
 
 const SVG_CODE = {

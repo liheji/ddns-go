@@ -34,6 +34,7 @@ var (
 		CloudnsEndpoint,
 		dnsNekoEndpoint,
 		dnsexitEndpoint,
+		digitaloceanEndpoint,
 	}
 
 	Ipcache = [][2]util.IpCache{}
@@ -123,6 +124,8 @@ func RunOnce() {
 			dnsSelected = &DnsNeko{}
 		case "dnsexit":
 			dnsSelected = &DnsExit{}
+		case "digitalocean":
+			dnsSelected = &DigitalOcean{}
 		default:
 			dnsSelected = &Alidns{}
 		}
